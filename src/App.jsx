@@ -234,17 +234,17 @@ export default function App() {
               </span>
             </div>
           </div>
-
-          <div className="mt-6">
-            <SearchBar
-              onSearch={searchCity}
-              onUseLocation={refreshLocation}
-              onRefresh={refreshActiveSource}
-              isRefreshing={isRefreshing}
-              disabled={!hasApiKey}
-            />
-          </div>
         </motion.header>
+
+        <div className="relative z-40">
+          <SearchBar
+            onSearch={searchCity}
+            onUseLocation={refreshLocation}
+            onRefresh={refreshActiveSource}
+            isRefreshing={isRefreshing}
+            disabled={!hasApiKey}
+          />
+        </div>
 
         {error && weatherData ? (
           <div className="glass-panel flex items-start gap-3 rounded-[24px] border border-amber-300/18 bg-amber-300/8 p-4 text-sm text-amber-50 shadow-soft">
