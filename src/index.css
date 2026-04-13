@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #020617;
+  color: #f8fafc;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.18;
+  z-index: -1;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(125, 211, 252, 0.45) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 252, 0.28);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/10 bg-white/[0.08] backdrop-blur-2xl;
+  }
+
+  .glass-subtle {
+    @apply border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+  }
+
+  .icon-button {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-sky-200/80;
+  }
+
+  .section-title {
+    @apply mt-2 font-display text-2xl font-semibold text-white;
+  }
+
+  .metric-tile {
+    @apply glass-subtle rounded-[24px] p-4;
+  }
+
+  .skeleton-card {
+    @apply rounded-[28px] border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skeleton-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+    animation: shimmer 1.7s infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

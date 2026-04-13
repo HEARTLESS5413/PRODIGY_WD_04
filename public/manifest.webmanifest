@@ -1,0 +1,18 @@
+{
+  "name": "Atmos AI Weather",
+  "short_name": "Atmos",
+  "description": "Immersive weather intelligence dashboard with animated skies and smart insights.",
+  "theme_color": "#09111f",
+  "background_color": "#09111f",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/weather-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
